@@ -1,0 +1,19 @@
+{
+  "name": "top_todolist",
+  "version": "1.0.0",
+  "description": "Class: `todo` - the task class, with properties: `title, desc, dueDate, priority...`\r Class: `project` - organizes tasks (like a folder) (other optional features?)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waylandsingh/TOP_ToDoList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waylandsingh/TOP_ToDoList/issues"
+  },
+  "homepage": "https://github.com/waylandsingh/TOP_ToDoList#readme"
+}
