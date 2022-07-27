@@ -1,0 +1,24 @@
+.task {
+    border: solid 1px blue;
+    margin: 15px;
+}
+
+.task *{
+    margin: 16px;
+}
+
+.task-name {
+    font-size: larger;
+    /* margin-right: 15px; */
+}
+
+.task-priority {
+    font-size: large;
+    
+}
+
+.task-due {
+    float: right;
+    margin-top: 2px;
+}
+
