@@ -6,7 +6,7 @@ export default function task({name, desc, due, priority}) {
     // ID <- from combination of name and duedate
     // name, desc, due, priority are already destructured and variables in scope
     let taskObject = {
-
+        ID:'1234', // need to get a better way to generate these without hard coding (dates?)
         getName(){
             return name;
         },
