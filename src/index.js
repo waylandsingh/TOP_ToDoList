@@ -21,21 +21,21 @@ const exampletasktoo = {
     due: '7/28',
     priority:'hidddgh'}
 
-const blah = task(exampletask)
+const t1 = task(exampletask)
 
 // render test
-// container.appendChild(renderTask(blah.getAllDetails()));
-
+container.appendChild(renderTask(t1.getAllDetails()));
+console.log(t1.getID())
 // modifying a given task
-let testTasklist = [blah]
+let testTasklist = [t1]
 let meh = project();
-meh.addTask(exampletask)
-meh.selectTask('1234').setName('okay bruv') // successful demo of getting the name and setting it from outside of projects
-console.log(meh.selectTask('1234').getName())
+meh.addTask(t1)
+// meh.selectTask(blah.getID()).setName('okay bruv') // successful demo of getting the name and setting it from outside of projects
+// console.log(meh.selectTask(blah.getID()).getName())
 
 // project rendering 
 // where do event listeners for updating fall into the mix?
-meh.addTask(exampletasktoo)
-const demoTaskList = meh.sortTaskList().map((t)=>t.getAllDetails())
-console.log(...demoTaskList)
-container.appendChild(renderProject(...demoTaskList))
+// meh.addTask(exampletasktoo)
+// const demoTaskList = meh.sortTaskList().map((t)=>t.getAllDetails())
+// console.log(...demoTaskList)
+// container.appendChild(renderProject(...demoTaskList))

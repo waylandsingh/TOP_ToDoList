@@ -5,8 +5,12 @@ export default function task({name, desc, due, priority}) {
     // name, description, due date, priority 
     // ID <- from combination of name and duedate
     // name, desc, due, priority are already destructured and variables in scope
+    const ID = new Date().getTime() // need to get a better way to generate these without hard coding (dates?)
+
     let taskObject = {
-        ID:'1234', // need to get a better way to generate these without hard coding (dates?)
+        getID(){
+            return ID
+        },
         getName(){
             return name;
         },
@@ -20,7 +24,7 @@ export default function task({name, desc, due, priority}) {
             return priority
         },
         getAllDetails() {
-            return {name, desc, due, priority}
+            return {ID, name, desc, due, priority}
         },
         setName(newName){
             name=newName

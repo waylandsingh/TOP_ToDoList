@@ -7,9 +7,11 @@ export default function renderProject(...taskList) {
     let editBar = document.createElement("div")
     editBar.classList = editBar
     editBar.innerHTML = `
-        <button class='project-edit'>Edit Project</button>
-        <button display:"none">Save Edits</button>
+        <button class='project-add'}>Add Task</button>
+
     `
+    // <button class='project-edit'>Edit Project</button>
+    // <button display:"none">Save Edits</button>
 
     // is it a safe assumption that taskList is an array?
     // should taskList instead be taskList iterator? (dependency inversion?)
