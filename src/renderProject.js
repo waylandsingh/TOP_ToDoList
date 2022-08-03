@@ -10,6 +10,19 @@ export default function renderProject(...taskList) {
         <button class='project-add'}>Add Task</button>
 
     `
+
+    const editName = function() {
+        let editID = this.parentElement.id
+        //access the ID of the parent
+        let editName = prompt('New name? leave blank for no change')
+        // when discarded, return without doing anything
+        console.log(projectHTML)
+        // when saved
+        // modify the name of the task in the database?!
+        // re-render the task when saved
+        console.log(editID, editName)
+        return {editID, editName}
+    }
     // <button class='project-edit'>Edit Project</button>
     // <button display:"none">Save Edits</button>
 
@@ -21,7 +34,16 @@ export default function renderProject(...taskList) {
     // better but still relies on .getAllDetails - what's the refactor look like?
     // adjust the input! refactor complete
     for (const t of taskList) {
-        projectHTML.appendChild(renderTask(t))
+        let newTask = renderTask(t)
+
+        // add editing capability (likely moved to own module)
+        let editbutton = document.createElement('button')
+        editbutton.addEventListener("click", editName)
+        editbutton.innerText = "Edit Task"
+        newTask.appendChild(editbutton)
+
+        projectHTML.appendChild(newTask)
+        
     }
 
     projectHTML.appendChild(editBar)

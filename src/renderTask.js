@@ -8,18 +8,7 @@ export default function renderTask({ID, name, desc, due, priority}) {
     //returns HTML object that can be appended to any DOM object
     // Reminder: uses object destucturing to auto add args to scope
 
-    const editName = function() {
-        console.log(this.parentElement)
-        //access the ID of the parent
-
-        // when discarded, return without doing anything
-
-        // when saved
-        // modify the name of the task in the database?!
-        // re-render the task when saved
-
-        return 1
-    }
+    
 
     let task = document.createElement("div")
     task.classList = 'task'
@@ -31,11 +20,6 @@ export default function renderTask({ID, name, desc, due, priority}) {
         <p>${desc}</p>
     `
 
-    // add editing capability 
-    let editbutton = document.createElement('button')
-    editbutton.addEventListener("click", editName)
-    editbutton.innerText = "Edit Task"
-
-    task.appendChild(editbutton)
+    
     return task
 }
