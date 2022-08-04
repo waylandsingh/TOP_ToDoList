@@ -12,9 +12,10 @@ export default function project() {
         return taskList[idxOfTask]// will allow calling of getters/setter in the index.js scope
     } 
 
-    const addTask = function({name, desc, due, priority}) {
+    const addTask = function({ID,name, desc, due, priority}) {
         // wraps task creating 
-        taskList.push(task({name, desc, due, priority}))
+        
+        taskList.push(task({ID,name, desc, due, priority}))
         return 'blah' //return tasklist? return task?
     }
 

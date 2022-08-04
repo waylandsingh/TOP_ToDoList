@@ -1,7 +1,7 @@
 import project from "./project";
 import renderTask from "./renderTask";
 
-export default function renderProject(...taskList) {
+export default function renderProject(DOMcontainer, ...taskList) {
     let projectHTML = document.createElement("div")
     projectHTML.classList = 'project'
     let editBar = document.createElement("div")
@@ -10,13 +10,15 @@ export default function renderProject(...taskList) {
         <button class='project-add'}>Add Task</button>
 
     `
+    console.log('renderproject called')
 
     const editName = function() {
-        let editID = this.parentElement.id
+        console.log(this)
+        let editID = this.id
         //access the ID of the parent
         let editName = prompt('New name? leave blank for no change')
         // when discarded, return without doing anything
-        console.log(projectHTML)
+        // console.log(projectHTML)
         // when saved
         // modify the name of the task in the database?!
         // re-render the task when saved
@@ -48,5 +50,6 @@ export default function renderProject(...taskList) {
 
     projectHTML.appendChild(editBar)
 
-    return projectHTML
+    DOMcontainer.appendChild(projectHTML)
+    return
 }
