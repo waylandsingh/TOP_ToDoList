@@ -1,20 +1,24 @@
 import task from "./task";
-// need a 3d piece; eventlistener management
-// manages communication between task object and can call "renderTask"
+// pubsub import?
 
 
-
-export default function renderTask({ID, name, desc, due, priority}) {
+// pass in the actual Task object ?
+// task, getTaskDetails
+export default function renderTask(
+    task, getTaskDetails, setTaskName, setTaskDesc, setTaskDue, 
+    setTaskPriority
+    ) {
     //returns HTML object that can be appended to any DOM object
     // Reminder: uses object destucturing to auto add args to scope
-
+    
+    let {ID, name, desc, due, priority} = getTaskDetails(task)
     console.log("task rendered")
 
-    let task = document.createElement("div")
-    task.classList = 'task'
-    task.id = ID
+    let taskDiv = document.createElement("div")
+    taskDiv.classList = 'task'
+    taskDiv.id = ID
     console.log(ID)
-    task.innerHTML = `
+    taskDiv.innerHTML = `
         <span class='task-name'>${name}</span>
         <span class='task-priority'>${priority}</span>
         <span class='task-due'>${due}</span>
@@ -22,5 +26,5 @@ export default function renderTask({ID, name, desc, due, priority}) {
     `
 
     
-    return task
+    return taskDiv
 }
