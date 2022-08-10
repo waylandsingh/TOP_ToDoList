@@ -26,12 +26,13 @@ const exampletasktoo = {
 
 const t1 = task(exampletask)
 // refactored task, render task to use pubsub for initial rendering and updating buttons
-container.appendChild(
-    renderTask(
-        t1,t1.getAllDetails, t1.setName, t1.setDesc, 
-        t1.setDue, t1.setPriority
-    )
+
+renderTask(
+    container,
+    t1,t1.getAllDetails, t1.setName, t1.setDesc, 
+    t1.setDue, t1.setPriority
 )
+
 
 // let meh = project();
 // meh.addTask(t1.getAllDetails())
