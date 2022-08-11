@@ -25,20 +25,30 @@ const exampletasktoo = {
     priority:'hidddgh'}
 
 const t1 = task(exampletask)
-let meh = project();
-meh.addTask(t1.getAllDetails())
-const demoTaskList = meh.sortTaskList().map((t)=>t.getAllDetails()) 
+// refactored task, render task to use pubsub for initial rendering and updating buttons
+
+renderTask(
+    container,
+    t1,t1.getAllDetails, t1.setName, t1.setDesc, 
+    t1.setDue, t1.setPriority
+)
+
+
+// let meh = project();
+// meh.addTask(t1.getAllDetails())
+// const demoTaskList = meh.sortTaskList().map((t)=>t.getAllDetails()) 
+
 // does this mean I'm re-making tasks inside the project ? 
 // yes this is the intended way to add tasks
 
-//pubsub pattern test here
-const taskpubsub = new Pubsub()
+// //pubsub pattern test here
+// const taskpubsub = new Pubsub()
 
-// example workflow of subscribing the renderprojct to the topic of task about dogwashing
-taskpubsub.subscription("dogwash", renderProject).subscribe()
+// // example workflow of subscribing the renderprojct to the topic of task about dogwashing
+// taskpubsub.subscription("dogwash", renderProject).subscribe()
 
-// example of publish call when, for instance demotaskLIst is updated
-taskpubsub.publish("dogwash", container, ...demoTaskList) //needs to spread out the object params
+// // example of publish call when, for instance demotaskLIst is updated
+// taskpubsub.publish("dogwash", container, ...demoTaskList) //needs to spread out the object params
 // render test
 // container.appendChild(renderTask(t1.getAllDetails()));
 // console.log(t1.getID())
