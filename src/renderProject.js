@@ -2,7 +2,10 @@ import project from "./project";
 import renderTask from "./renderTask";
 import Pubsub from "./Pubsub";
 
-export default function renderProject(DOMcontainer, getTaskDetails, taskList, setTaskName, setTaskDesc, setTaskDue, setTaskPriority) {
+export default function renderProject(
+    DOMcontainer, getTaskDetails, taskList, setTaskName, 
+    setTaskDesc, setTaskDue, setTaskPriority
+    ) {
     let projectHTML = document.createElement("div")
     projectHTML.classList = 'project'
     let editBar = document.createElement("div")
@@ -10,18 +13,19 @@ export default function renderProject(DOMcontainer, getTaskDetails, taskList, se
     editBar.innerHTML = `
         <button class='project-add'}>Add Task</button>
 
-    `
-    console.log('renderproject called')
+        `
+
+    // add 
+
 
     for (const t of taskList) {
-        console.log(t)
-        //make div for task
         let newTaskDiv = document.createElement("div")
-        //get task info, including setting/getting functions 
-        renderTask(newTaskDiv, t, getTaskDetails, setTaskName, setTaskDesc, setTaskDue,setTaskPriority)
-
-        // add editing capability (likely moved to own module)
-        //renderTask(newTaskDiv, the task, and more)
+        renderTask(
+            newTaskDiv, t, getTaskDetails, setTaskName, 
+            setTaskDesc, setTaskDue,setTaskPriority
+            )
+        // delete , complete, etc here?
+        // delete publishers here for individual tasks
 
         projectHTML.appendChild(newTaskDiv)
         
