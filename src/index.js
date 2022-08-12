@@ -25,6 +25,7 @@ const exampletasktoo = {
     priority:'hidddgh'}
 
 const t1 = task(exampletask)
+const t2 = task(exampletasktoo)
 // refactored task, render task to use pubsub for initial rendering and updating buttons
 
 renderTask(
@@ -34,9 +35,11 @@ renderTask(
 )
 
 
-// let meh = project();
-// meh.addTask(t1.getAllDetails())
-// const demoTaskList = meh.sortTaskList().map((t)=>t.getAllDetails()) 
+let meh = project();
+meh.addTask(t1.getAllDetails())
+meh.addTask(t2.getAllDetails())
+const demoTaskList = meh.sortTaskList()
+renderProject(container, t1.getAllDetails, demoTaskList, t1.setName, t1.setDesc, t1.setDue, t1.setPriority)
 
 // does this mean I'm re-making tasks inside the project ? 
 // yes this is the intended way to add tasks
@@ -64,4 +67,3 @@ renderTask(
 
 // meh.addTask(exampletasktoo)
 // console.log(...demoTaskList)
-// container.appendChild(renderProject(...demoTaskList))

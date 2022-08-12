@@ -54,7 +54,7 @@ export default function renderTask(container,
 
     // Future - deal with this dependency on task/getTaskDetails
     let {ID, name, desc, due, priority} = getTaskDetails(task)
-
+    console.log(getTaskDetails(task))
     //create the task container and populate it with the task info
     let taskDiv = document.createElement("div")
     taskDiv.classList = 'task'

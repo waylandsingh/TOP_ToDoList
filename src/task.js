@@ -1,3 +1,4 @@
+
 export default function task({ID, name, desc, due, priority}) {
     // instantiate and return HTML object corresponding to a task 
     // OR inst and return JSON? <- think this is the play
@@ -33,7 +34,7 @@ export default function task({ID, name, desc, due, priority}) {
             desc=newDesc
         },
         setDue(newDue){
-            due=newDUe
+            due=newDue
         },
         setPriority(newPriority){
             priority=newPriority
@@ -44,3 +45,4 @@ export default function task({ID, name, desc, due, priority}) {
     
     return taskObject
 } 
+

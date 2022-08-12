@@ -2,7 +2,7 @@ import project from "./project";
 import renderTask from "./renderTask";
 import Pubsub from "./Pubsub";
 
-export default function renderProject(DOMcontainer, getTaskDetails, ...taskList) {
+export default function renderProject(DOMcontainer, getTaskDetails, taskList, setTaskName, setTaskDesc, setTaskDue, setTaskPriority) {
     let projectHTML = document.createElement("div")
     projectHTML.classList = 'project'
     let editBar = document.createElement("div")
@@ -13,34 +13,17 @@ export default function renderProject(DOMcontainer, getTaskDetails, ...taskList)
     `
     console.log('renderproject called')
 
-    const editName = function() {
-        console.log(this)
-        let editID = this.id
-        //access the ID of the parent
-        let editName = prompt('New name? leave blank for no change')
-        // if not blank, publish changes to taskid
-        // blank, return without doing anything
-        
-        // modify the name of the task in the database?!
-        
-        console.log(editID, editName)
-        return {editID, editName}
-    }
-
-    // new pubsub object
-
     for (const t of taskList) {
-        let newTask = renderTask(t)
-
-        // new subscription for task 't'
+        console.log(t)
+        //make div for task
+        let newTaskDiv = document.createElement("div")
+        //get task info, including setting/getting functions 
+        renderTask(newTaskDiv, t, getTaskDetails, setTaskName, setTaskDesc, setTaskDue,setTaskPriority)
 
         // add editing capability (likely moved to own module)
-        let editbutton = document.createElement('button')
-        editbutton.addEventListener("click", editName)
-        editbutton.innerText = "Edit Task"
-        newTask.appendChild(editbutton)
+        //renderTask(newTaskDiv, the task, and more)
 
-        projectHTML.appendChild(newTask)
+        projectHTML.appendChild(newTaskDiv)
         
     }
 
