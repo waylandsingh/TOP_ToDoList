@@ -4,6 +4,22 @@ function extractTaskDetails(task_) {
     return task_.getAllDetails()
 }
 
+function setTaskName(task_, newName) {
+    return task_.setName(newName)
+}
+
+function setTaskDesc(task_, newDesc) {
+    return task_.setDesc(newDesc)
+}
+
+function setTaskDue(task_, newDue) {
+    return task_.setDue(newDue)
+}
+
+function setTaskPriority(task_, newPrio) {
+    return task_.setPriority(newPrio)
+}
+
 function task({ID, name, desc, due, priority}) {
     // instantiate and return HTML object corresponding to a task 
     // OR inst and return JSON? <- think this is the play
@@ -51,4 +67,4 @@ function task({ID, name, desc, due, priority}) {
     return taskObject
 } 
 
-export { task, extractTaskDetails}
+export { task, extractTaskDetails, setTaskName, setTaskDesc, setTaskDue, setTaskPriority}

@@ -39,7 +39,7 @@ let meh = project();
 meh.addTask(extractTaskDetails(t1))
 meh.addTask(extractTaskDetails(t2))
 const demoTaskList = meh.taskList
-renderProject(container, extractTaskDetails, demoTaskList, t1.setName, t1.setDesc, t1.setDue, t1.setPriority)
+renderProject(container, demoTaskList)
 
 // does this mean I'm re-making tasks inside the project ? 
 // yes this is the intended way to add tasks

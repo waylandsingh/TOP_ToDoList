@@ -1,12 +1,14 @@
-import {task, extractTaskDetails} from './task';
+import {
+    task, extractTaskDetails as getTaskDetails, setTaskName, setTaskDesc, 
+    setTaskDue, setTaskPriority
+} from './task';
 import Pubsub from "./Pubsub";
 
 
 // pass in the actual Task object ?
 // task, getTaskDetails
 export default function renderTask(container,
-    task, getTaskDetails, setTaskName, setTaskDesc, setTaskDue, 
-    setTaskPriority
+    task
     ) {
     // probably wise to separate this into own module
     const renderTaskHTML = ({ID, name, desc, due, priority}) => {
@@ -24,7 +26,7 @@ export default function renderTask(container,
     const nameChange = () => {
         console.log(ID, name, desc, due, priority)
         const newName = prompt("new name plz")
-        pubsub.publish(ID+"_name", newName)
+        pubsub.publish(ID+"_name", task, newName)
         console.log(getTaskDetails(task)) //is in same lexical scope as the outer task
         renderTaskHTML(getTaskDetails(task))
     }
@@ -32,7 +34,7 @@ export default function renderTask(container,
     const descChange = () => {
         console.log(ID, name, desc, due, priority)
         const newDesc = prompt("new name plz")
-        pubsub.publish(ID+"_desc", newDesc)
+        pubsub.publish(ID+"_desc", task, newDesc)
         console.log(getTaskDetails(task)) //is in same lexical scope as the outer task
         renderTaskHTML(getTaskDetails(task))
     }
@@ -40,7 +42,7 @@ export default function renderTask(container,
     const dueChange = () => {
         console.log(ID, name, desc, due, priority)
         const newDue = prompt("new due plz")
-        pubsub.publish(ID+"_due", newDue)
+        pubsub.publish(ID+"_due", task, newDue)
         console.log(getTaskDetails(task)) //is in same lexical scope as the outer task
         renderTaskHTML(getTaskDetails(task))
     }
@@ -48,7 +50,7 @@ export default function renderTask(container,
     const priorityChange = () => {
         console.log(ID, name, desc, due, priority)
         const newPrio = prompt("new priority plz")
-        pubsub.publish(ID+"_priority", newPrio)
+        pubsub.publish(ID+"_priority", task, newPrio)
         console.log(getTaskDetails(task)) //is in same lexical scope as the outer task
         renderTaskHTML(getTaskDetails(task))
     }

@@ -3,8 +3,7 @@ import renderTask from "./renderTask";
 import Pubsub from "./Pubsub";
 
 export default function renderProject(
-    DOMcontainer, getTaskDetails, taskList, setTaskName, 
-    setTaskDesc, setTaskDue, setTaskPriority
+    DOMcontainer, taskList,
     ) {
     let projectHTML = document.createElement("div")
     projectHTML.classList = 'project'
@@ -17,12 +16,10 @@ export default function renderProject(
 
     // add 
 
-    console.log(taskList.map(getTaskDetails))
     for (const t of taskList) {
         let newTaskDiv = document.createElement("div")
         renderTask(
-            newTaskDiv, t, getTaskDetails, setTaskName, 
-            setTaskDesc, setTaskDue,setTaskPriority
+            newTaskDiv, t,
             )
         // delete , complete, etc here?
         // delete publishers here for individual tasks
