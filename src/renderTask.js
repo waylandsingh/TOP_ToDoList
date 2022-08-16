@@ -1,4 +1,4 @@
-import task from "./task";
+import {task, extractTaskDetails} from './task';
 import Pubsub from "./Pubsub";
 
 
