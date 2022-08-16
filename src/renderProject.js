@@ -17,7 +17,7 @@ export default function renderProject(
 
     // add 
 
-
+    console.log(taskList.map(getTaskDetails))
     for (const t of taskList) {
         let newTaskDiv = document.createElement("div")
         renderTask(

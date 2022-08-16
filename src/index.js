@@ -1,5 +1,5 @@
 import './index.css';
-import task from './task';
+import {task, extractTaskDetails} from './task';
 import renderTask from './renderTask';
 import project from './project';
 import renderProject from './renderProject';
@@ -28,18 +28,18 @@ const t1 = task(exampletask)
 const t2 = task(exampletasktoo)
 // refactored task, render task to use pubsub for initial rendering and updating buttons
 
-renderTask(
-    container,
-    t1,t1.getAllDetails, t1.setName, t1.setDesc, 
-    t1.setDue, t1.setPriority
-)
-
+// renderTask(
+//     container,
+//     t1,t1.getAllDetails, t1.setName, t1.setDesc, 
+//     t1.setDue, t1.setPriority
+// )
+console.log("okay")
 
 let meh = project();
-meh.addTask(t1.getAllDetails())
-meh.addTask(t2.getAllDetails())
-const demoTaskList = meh.sortTaskList()
-renderProject(container, t1.getAllDetails, demoTaskList, t1.setName, t1.setDesc, t1.setDue, t1.setPriority)
+meh.addTask(extractTaskDetails(t1))
+meh.addTask(extractTaskDetails(t2))
+const demoTaskList = meh.taskList
+renderProject(container, extractTaskDetails, demoTaskList, t1.setName, t1.setDesc, t1.setDue, t1.setPriority)
 
 // does this mean I'm re-making tasks inside the project ? 
 // yes this is the intended way to add tasks

@@ -1,5 +1,10 @@
+// create new funcion here to get the details of a task
 
-export default function task({ID, name, desc, due, priority}) {
+function extractTaskDetails(task_) {
+    return task_.getAllDetails()
+}
+
+function task({ID, name, desc, due, priority}) {
     // instantiate and return HTML object corresponding to a task 
     // OR inst and return JSON? <- think this is the play
     // properties:
@@ -46,3 +51,4 @@ export default function task({ID, name, desc, due, priority}) {
     return taskObject
 } 
 
+export { task, extractTaskDetails}

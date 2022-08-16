@@ -1,4 +1,4 @@
-import task from "./task"
+import {task, extractTaskDetails} from './task';
 // idea: another factory function; one of the properties is an array of tasks
 
 // does project need to know how to render tasks? probably can be passed a rendering function
@@ -14,8 +14,9 @@ export default function project() {
 
     const addTask = function({ID,name, desc, due, priority}) {
         // wraps task creating 
-        
-        taskList.push(task({ID,name, desc, due, priority}))
+        const newTask = task({ID,name, desc, due, priority})
+        taskList.push(newTask)
+        console.log(newTask.getAllDetails())
         return 'blah' //return tasklist? return task?
     }
 
@@ -25,7 +26,7 @@ export default function project() {
         return taskList
     }
     return {
-        // taskList,
+        taskList,
         // createTask,
         // renderMethod, // questionable if this needs to be here, or somewhere else
         selectTask,

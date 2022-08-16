@@ -9,7 +9,8 @@ export default function renderTask(container,
     setTaskPriority
     ) {
     // probably wise to separate this into own module
-    const renderTaskHTML = ({ID, name, desc, due, priority}) => {   
+    const renderTaskHTML = ({ID, name, desc, due, priority}) => {
+        // closure with taskDetails - infers the DOM object from the enclosing function   
         taskDetails.innerHTML = `
             <span class='task-name'>${name}</span>
             <span class='task-priority'>${priority}</span>
