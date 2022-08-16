@@ -1,7 +1,7 @@
 import './index.css';
 import {task, extractTaskDetails} from './task';
 import renderTask from './renderTask';
-import project from './project';
+import {project} from './project';
 import renderProject from './renderProject';
 import Pubsub from './Pubsub'
 
@@ -38,8 +38,8 @@ console.log("okay")
 let meh = project();
 meh.addTask(extractTaskDetails(t1))
 meh.addTask(extractTaskDetails(t2))
-const demoTaskList = meh.taskList
-renderProject(container, demoTaskList)
+// const demoTaskList = meh.taskList
+renderProject(container, meh)
 
 // does this mean I'm re-making tasks inside the project ? 
 // yes this is the intended way to add tasks

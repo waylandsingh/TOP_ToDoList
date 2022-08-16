@@ -1,9 +1,17 @@
 import {task, extractTaskDetails} from './task';
 // idea: another factory function; one of the properties is an array of tasks
 
-// does project need to know how to render tasks? probably can be passed a rendering function
+function projGetTaskList (proj) {
+    return proj.sortTaskList()
+}
 
-export default function project() {
+function projAddTask(proj, ID,name, desc, due, priority) {
+    proj.addTask({ID,name, desc, due, priority})
+}
+
+
+
+function project() {
     // define function to edit tasks? this is probably best done
     // implement ID for tasks
     let taskList = new Array()
@@ -17,7 +25,7 @@ export default function project() {
         const newTask = task({ID,name, desc, due, priority})
         taskList.push(newTask)
         console.log(newTask.getAllDetails())
-        return 'blah' //return tasklist? return task?
+        return newTask //return tasklist? return task?
     }
 
     const sortTaskList = function() {
@@ -26,7 +34,7 @@ export default function project() {
         return taskList
     }
     return {
-        taskList,
+        
         // createTask,
         // renderMethod, // questionable if this needs to be here, or somewhere else
         selectTask,
@@ -34,3 +42,5 @@ export default function project() {
         sortTaskList
     }
 }
+
+export { project, projGetTaskList, projAddTask}
