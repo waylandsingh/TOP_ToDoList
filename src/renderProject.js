@@ -28,8 +28,11 @@ export default function renderProject(DOMcontainer, project) {
 
     function addTask() {
 
-        // generate and render form for task info input!
-        document.createElement()
+        // show the form for task info input!
+        
+
+
+
         pubsub.publish("addTask", project, "blah", "ah,", "sdasd","ss")
         // placeholder for render one more task at the bottom of the list
         
@@ -54,7 +57,20 @@ export default function renderProject(DOMcontainer, project) {
     pubsub.subscription("addTask", projAddTask).subscribe()
     const addTaskButton = document.createElement("button")
     addTaskButton.innerText = "Add Task"
+    
     addTaskButton.addEventListener("click", addTask)
+
+    addTaskForm = document.createElement("div")
+    addTaskForm.classList = 'addTaskForm'
+
+    // form inputs HTML block
+    // form submit button
+        // publish to addTask
+        // renderAllTasks
+        // collapse/hide form block
+    // form cancel button
+        // collapse/hide form block
+
     editBar.appendChild(addTaskButton)
 
 
