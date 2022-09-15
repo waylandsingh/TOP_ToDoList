@@ -112,3 +112,7 @@ main {
 #tasks .task .content  .text{
     color: var(--light)
 }
+
+.task .actions button {
+    cursor: pointer;
+}
