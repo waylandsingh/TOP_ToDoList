@@ -14,15 +14,44 @@ export default function renderTask(container, task) {
   // probably wise to separate this into own module
   const renderTaskHTML = ({ ID, name, desc, due, priority }) => {
     // closure with taskDetails - infers the DOM object from the enclosing function
-    taskDetails.innerHTML = `
-            <span class='task-name'>${name}</span>
-            <span class='task-priority'>${priority}</span>
-            <span class='task-due'>${due}</span>
-            <p>${desc}</p>
-        `;
+    const taskRefactor = document.createElement('div')
+    
+    taskDetails.innerHTML = `<div class="task">
+                              <input type="text"
+                                  class="taskinput, task-name"
+                                  value="${name}"
+                                  readonly 
+                              >
+
+                              <input type="text"
+                                  class="taskinput, task-priority"
+                                  value="${priority}"
+                                  readonly 
+                              >
+                              <input type="text"
+                                  class="taskinput, task-date"
+                                  value="${due}"
+                                  readonly 
+                              >
+                              <input type="text"
+                                  class="taskinput, task-description"
+                                  value="${desc}"
+                                  readonly 
+                              >
+
+                              </div>
+                            `;
 
     return;
   };
+
+  // const nameChange = () => {
+  //   console.log(ID, name, desc, due, priority);
+  //   const newName = prompt("new name plz");
+  //   pubsub.publish(ID + "_name", task, newName);
+  //   console.log(getTaskDetails(task)); //is in same lexical scope as the outer task
+  //   renderTaskHTML(getTaskDetails(task));
+  // };
 
   const nameChange = () => {
     console.log(ID, name, desc, due, priority);
