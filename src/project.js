@@ -8,7 +8,7 @@ function projGetTaskList(proj) {
 function projAddTask(proj, ID, name, desc, due, priority) {
   proj.addTask({ ID, name, desc, due, priority });
 }
-ß
+
 function project() {
   // define function to edit tasks? this is probably best done
   // implement ID for tasks

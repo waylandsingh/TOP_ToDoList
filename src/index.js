@@ -5,6 +5,8 @@ import { project } from "./project";
 import renderProject from "./renderProject";
 import Pubsub from "./Pubsub";
 
+console.log('something')
+
 const container = document.createElement("div");
 container.id = "container";
 document.body.appendChild(container);

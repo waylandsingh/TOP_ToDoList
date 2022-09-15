@@ -45,7 +45,7 @@ export default function renderProject(DOMcontainer, project) {
 
   addTaskButton.addEventListener("click", addTask);
 
-  addTaskForm = document.createElement("div");
+  const addTaskForm = document.createElement("div");
   addTaskForm.classList = "addTaskForm";
 
   // form inputs HTML block
