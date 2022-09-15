@@ -87,7 +87,8 @@ export default function renderTask(container, task) {
     // console.log(getTaskDetails(task)); //is in same lexical scope as the outer task
   };
 
-  
+  // ______DELETE TASK PLACEHOLDER______
+
   // Future - deal with this dependency on task/getTaskDetails
   let { ID, name, desc, due, priority } = getTaskDetails(task);
   console.log(getTaskDetails(task));
@@ -115,5 +116,8 @@ export default function renderTask(container, task) {
   taskDiv.appendChild(editAllButton)
   editAllButton.addEventListener('click', allChange)
 
+  // ______DELETE BUTTON PLACEHOLDER_______
+
+  
   container.appendChild(taskDiv);
 }
