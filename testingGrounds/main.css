@@ -116,3 +116,16 @@ main {
 .task .actions button {
     cursor: pointer;
 }
+
+#projectList {
+    padding: 10px;
+    border: 1px dotted green;
+    color: var(--pink);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;/*  helps user know its an input! */
+    transition: 0.4s;
+}

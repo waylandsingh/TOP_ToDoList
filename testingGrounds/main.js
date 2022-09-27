@@ -1,4 +1,42 @@
+function makeDropdown(targetnode, ...args) {
+    const dropdownOptions = args
+    //dropdownOptions is an array of html elements that'll be in the dropdown
+    dropdownOptions.forEach((option)=>targetnode.appendChild(option))
+
+
+    return 
+}
+
+function makeUseLessElement(text) {
+    const ele = document.createElement('p')
+    ele.classList.add('useless')
+    ele.innerText = text
+    ele.style.display = "none"
+    return ele
+}
+
 window.addEventListener('load',()=>{
+
+    //test the header dropdown
+    const dropdown = document.getElementById("projectList")
+    const something1 = makeUseLessElement('number 1')
+    const something2 = makeUseLessElement('another one, huzzah')
+    makeDropdown(dropdown, something1, something2)
+
+    dropdown.addEventListener('click', ()=>{
+
+        const children = Array.from(dropdown.children)
+
+        // //js to change state
+        children.forEach((child)=>{
+            if (child.style.display=="none"){
+            child.style.display = "block"}
+            else {
+                child.style.display = "none"
+            }
+        })
+    })
+
     // select form, input and list to  
     // get input, input values and access to task container
 
