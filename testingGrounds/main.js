@@ -15,6 +15,7 @@ function makeUseLessElement(text) {
     return ele
 }
 
+
 window.addEventListener('load',()=>{
 
     //test the header dropdown
